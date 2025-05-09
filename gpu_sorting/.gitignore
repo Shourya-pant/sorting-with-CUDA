@@ -1,0 +1,41 @@
+# Node.js dependencies
+web/node_modules
+web/package-lock.json
+
+# Build output
+*.exe
+*.obj
+*.o
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+
+# IDE and editor files
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build directories
+build/
+out/
+x64/
+Debug/
+Release/
+
+# CUDA compilation files
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log* 

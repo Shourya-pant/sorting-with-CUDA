@@ -1,0 +1,18 @@
+{
+  "name": "bitonic-sort-web",
+  "version": "1.0.0",
+  "description": "Web interface for GPU-optimized bitonic sort",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "start-browser": "node start.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "open": "^8.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+} 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParallelSort - GPU Accelerated Sorting</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Import Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Material Icons for better UI -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+    <div id="three-container"></div>
+    
+    <div class="container">
+        <header>
+            <h1>ParallelSort</h1>
+            <p class="tagline">GPU Accelerated Sorting Visualization</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" id="about-link">About</a></li>
+                    <li><a href="#" id="help-link">Help</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="controls card">
+            <h2>Sorting Configuration</h2>
+            <div class="control-group">
+                <label for="algorithm">Algorithm:</label>
+                <select id="algorithm">
+                    <option value="bitonic">Bitonic Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="size">Dataset Size:</label>
+                <select id="size">
+                    <option value="1024">1,024 elements</option>
+                    <option value="4096">4,096 elements</option>
+                    <option value="16384">16,384 elements</option>
+                    <option value="65536">65,536 elements</option>
+                    <option value="262144">262,144 elements</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="execution">Execution Mode:</label>
+                <select id="execution">
+                    <option value="gpu">GPU (CUDA)</option>
+                    <option value="cpu">CPU (JavaScript)</option>
+                </select>
+            </div>
+            
+            <button id="sort-button" class="primary-button">
+                <span class="material-icons">sort</span>
+                Start Sorting
+            </button>
+        </div>
+        
+        <div class="visualization card">
+            <h2>Sorting Visualization</h2>
+            <div id="visualization-container">
+                <div class="placeholder">Select an algorithm and click "Start Sorting" to begin visualization</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dialogs -->
+    <div id="about-dialog" class="dialog-overlay">
+        <div class="dialog">
+            <div class="dialog-header">
+                <h2>About ParallelSort</h2>
+                <button class="dialog-close">&times;</button>
+            </div>
+            <div class="dialog-content">
+                <p>ParallelSort is a powerful sorting visualization tool that implements various sorting algorithms in both JavaScript and simulated CUDA.</p>
+                <p>The application demonstrates how parallel sorting algorithms can significantly outperform traditional sorting methods for large datasets.</p>
+                <p>Version: 1.1.0</p>
+                <h3>New Features:</h3>
+                <ul>
+                    <li>GPU acceleration for better performance</li>
+                    <li>Support for multiple sorting algorithms</li>
+                    <li>Interactive performance visualization</li>
+                    <li>Improved responsiveness and animations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="help-dialog" class="dialog-overlay">
+        <div class="dialog">
+            <div class="dialog-header">
+                <h2>How to Use ParallelSort</h2>
+                <button class="dialog-close">&times;</button>
+            </div>
+            <div class="dialog-content">
+                <h3>Getting Started:</h3>
+                <ol>
+                    <li>Select a sorting algorithm from the dropdown menu</li>
+                    <li>Choose the dataset size to sort</li>
+                    <li>Select execution mode (GPU or CPU)</li>
+                    <li>Click "Start Sorting" to begin the visualization</li>
+                </ol>
+                
+                <h3>Understanding the Results:</h3>
+                <p>After sorting completes, you'll see:</p>
+                <ul>
+                    <li>A visualization of the sorted data</li>
+                    <li>Performance metrics comparing CPU vs. GPU execution times</li>
+                    <li>Speed improvement calculation</li>
+                </ul>
+                
+                <h3>Supported Algorithms:</h3>
+                <ul>
+                    <li><strong>Bitonic Sort:</strong> Efficient parallel sorting algorithm, ideal for GPU execution</li>
+                    <li><strong>Merge Sort:</strong> Divide-and-conquer algorithm with good parallelization potential</li>
+                    <li><strong>Quick Sort:</strong> Fast comparison sort with limited parallelization capability</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 ParallelSort - <a href="https://github.com/parallelsort/gpu-sorting">GitHub</a></p>
+    </footer>
+    
+    <div class="scroll-top" id="scroll-top-btn"><span class="material-icons-round">arrow_upward</span></div>
+    
+    <!-- Notification element -->
+    <div id="notification" class="notification"></div>
+    
+    <!-- Add Chart.js for visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="three-scene.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
